@@ -1,6 +1,7 @@
 package com.hermes.notificationservice.services;
 
 import com.hermes.notificationservice.entities.Notification;
+import com.hermes.notificationservice.models.ProductPriceChange;
 import com.hermes.notificationservice.repositories.NotificationRepository;
 import org.springframework.stereotype.Service;
 
@@ -16,17 +17,20 @@ public class NotificationService {
     this.repository = repository;
   }
 
-  public Notification createNotification() {
+  public Notification createProductPriceChangeNotification(ProductPriceChange productPriceChange) {
     Notification notification = new Notification();
-    notification.setNewPriceInCents(1000);
-    notification.setOldPriceInCents(1500);
-    notification.setProductId(100000L);
+    notification.setNewPriceInCents(productPriceChange.getNewPrice());
+    notification.setOldPriceInCents(productPriceChange.getOldPrice());
+    notification.setProductId(productPriceChange.getProductId());
     repository.save(notification);
     return notification;
   }
 
-  private void getSubscriptionsOfProductPriceChange(Long productId){}
+  private void getSubscriptionsOfProductPriceChange(Long productId) {
+  }
 
-  private void notifySubscribers(){};
+  private void notifySubscribers() {
+  }
 
+  ;
 }
