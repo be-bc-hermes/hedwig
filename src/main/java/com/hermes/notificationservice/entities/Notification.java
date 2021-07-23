@@ -1,24 +1,28 @@
 package com.hermes.notificationservice.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.couchbase.core.mapping.Document;
+import org.springframework.data.couchbase.core.mapping.Field;
+import org.springframework.data.couchbase.core.mapping.id.GeneratedValue;
+import org.springframework.data.couchbase.core.mapping.id.GenerationStrategy;
 
 /**
  * @author meverg
  */
-@Entity
+@Document
 public class Notification {
 
   @Id
-  @GeneratedValue(strategy= GenerationType.AUTO)
+  @GeneratedValue(strategy = GenerationStrategy.UNIQUE)
   private Long id;
 
+  @Field
   private Long productId;
 
+  @Field
   private Integer newPriceInCents;
 
+  @Field
   private Integer oldPriceInCents;
 
   public Long getId() {
