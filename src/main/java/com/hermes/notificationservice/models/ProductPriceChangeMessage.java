@@ -5,11 +5,13 @@ import java.io.Serializable;
 /**
  * @author meverg
  */
-public class ProductPriceChange implements Serializable {
+public class ProductPriceChangeMessage implements Serializable {
 
   private Long productId;
 
   private String productName;
+
+  private ProductPriceChannel priceChannel;
 
   private Integer oldPrice;
 
@@ -47,11 +49,20 @@ public class ProductPriceChange implements Serializable {
     this.newPrice = newPrice;
   }
 
+  public ProductPriceChannel getPriceChannel() {
+    return priceChannel;
+  }
+
+  public void setPriceChannel(ProductPriceChannel priceChannel) {
+    this.priceChannel = priceChannel;
+  }
+
   @Override
   public String toString() {
     return "ProductPriceChangeMessage{" +
            "productId=" + productId +
            ", productName='" + productName + '\'' +
+           ", priceChannel=" + priceChannel +
            ", oldPrice=" + oldPrice +
            ", newPrice=" + newPrice +
            '}';
