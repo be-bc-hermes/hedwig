@@ -7,17 +7,17 @@ import java.io.Serializable;
  */
 public class NotifyTargetMessage implements Serializable {
 
-  private Long notificationId;
+  private String notificationId;
 
   private NotificationTarget targetType;
 
   private String targetAddress;
 
-  public Long getNotificationId() {
+  public String getNotificationId() {
     return notificationId;
   }
 
-  public void setNotificationId(Long notificationId) {
+  public void setNotificationId(String notificationId) {
     this.notificationId = notificationId;
   }
 
@@ -40,9 +40,9 @@ public class NotifyTargetMessage implements Serializable {
   @Override
   public String toString() {
     return "NotifyTargetMessage{" +
-           "notificationId=" + notificationId +
-           ", targetType=" + targetType +
-           ", targetAddress='" + targetAddress + '\'' +
-           '}';
+            "notificationId='" + notificationId + '\'' +
+            ", targetType=" + targetType +
+            ", targetAddress='" + targetAddress + '\'' +
+            '}';
   }
 }

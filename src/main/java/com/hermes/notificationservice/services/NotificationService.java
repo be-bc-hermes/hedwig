@@ -56,7 +56,7 @@ public class NotificationService {
   }
 
   public void notifyTarget(NotifyTargetMessage message) {
-    Long id = message.getNotificationId();
+    String id = message.getNotificationId();
     Optional<Notification> notificationRecord = repository.findById(id);
     if (notificationRecord.isPresent()) {
       Notification notification = notificationRecord.get();
