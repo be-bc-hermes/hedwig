@@ -1,6 +1,6 @@
 package com.hermes.notificationservice;
 
-import com.hermes.notificationservice.models.ProductPriceChange;
+
 import com.hermes.notificationservice.services.NotificationService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -14,11 +14,5 @@ public class NotificationServiceApplication {
     SpringApplication.run(NotificationServiceApplication.class, args);
   }
 
-  @Bean
-  CommandLineRunner commandLineRunner(NotificationService notificationService) {
-    return args -> {
-      notificationService.createProductPriceChangeNotification(new ProductPriceChange());
-    };
-  }
 
 }

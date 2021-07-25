@@ -1,5 +1,6 @@
 package com.hermes.notificationservice.entities;
 
+import com.hermes.notificationservice.models.NotificationType;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.couchbase.core.mapping.Document;
 import org.springframework.data.couchbase.core.mapping.Field;
@@ -25,8 +26,19 @@ public class Notification {
   @Field
   private Integer oldPriceInCents;
 
+  @Field
+  private NotificationType notificationType;
+
   public String getId() {
     return id;
+  }
+
+  public NotificationType getNotificationType() {
+    return notificationType;
+  }
+
+  public void setNotificationType(NotificationType notificationType) {
+    this.notificationType = notificationType;
   }
 
   public void setId(String id) {
@@ -60,10 +72,11 @@ public class Notification {
   @Override
   public String toString() {
     return "Notification{" +
-           "id=" + id +
-           ", productId=" + productId +
-           ", newPriceInCents=" + newPriceInCents +
-           ", oldPriceInCents=" + oldPriceInCents +
-           '}';
+            "id='" + id + '\'' +
+            ", productId=" + productId +
+            ", newPriceInCents=" + newPriceInCents +
+            ", oldPriceInCents=" + oldPriceInCents +
+            ", notificationType=" + notificationType +
+            '}';
   }
 }
