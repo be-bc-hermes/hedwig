@@ -2,6 +2,8 @@ package com.hermes.notificationservice.entities;
 
 import com.hermes.notificationservice.models.NotificationType;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -16,6 +18,7 @@ public class Notification {
   @GeneratedValue(strategy = GenerationType.AUTO)
   private Long id;
 
+  @Enumerated(EnumType.STRING)
   private NotificationType notificationType;
 
   private Long productId;

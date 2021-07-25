@@ -45,7 +45,8 @@ public class NotificationPublisher {
         rabbitTemplate.convertAndSend(notificationExchange.getName(), productPriceChangeNotificationRoutingKey,
                                       message);
       }
-      default -> throw new IllegalStateException("Unexpected value: " + notification.getNotificationType());
+      default -> throw new IllegalStateException(
+          "Unexpected notification type value: " + notification.getNotificationType());
     }
   }
 }
