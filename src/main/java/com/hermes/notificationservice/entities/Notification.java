@@ -1,37 +1,35 @@
 package com.hermes.notificationservice.entities;
 
-import com.hermes.notificationservice.models.NotificationType;
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.couchbase.core.mapping.Document;
+import org.springframework.data.couchbase.core.mapping.Field;
+import org.springframework.data.couchbase.core.mapping.id.GeneratedValue;
+import org.springframework.data.couchbase.core.mapping.id.GenerationStrategy;
 
 /**
  * @author meverg
  */
-@Entity
+@Document
 public class Notification {
 
   @Id
-  @GeneratedValue(strategy = GenerationType.AUTO)
-  private Long id;
+  @GeneratedValue(strategy = GenerationStrategy.UNIQUE)
+  private String id;
 
-  @Enumerated(EnumType.STRING)
-  private NotificationType notificationType;
-
+  @Field
   private Long productId;
 
+  @Field
   private Integer newPriceInCents;
 
+  @Field
   private Integer oldPriceInCents;
 
-  public Long getId() {
+  public String getId() {
     return id;
   }
 
-  public void setId(Long id) {
+  public void setId(String id) {
     this.id = id;
   }
 
@@ -59,19 +57,10 @@ public class Notification {
     this.oldPriceInCents = oldPriceInCents;
   }
 
-  public NotificationType getNotificationType() {
-    return notificationType;
-  }
-
-  public void setNotificationType(NotificationType notificationType) {
-    this.notificationType = notificationType;
-  }
-
   @Override
   public String toString() {
     return "Notification{" +
            "id=" + id +
-           ", notificationType=" + notificationType +
            ", productId=" + productId +
            ", newPriceInCents=" + newPriceInCents +
            ", oldPriceInCents=" + oldPriceInCents +

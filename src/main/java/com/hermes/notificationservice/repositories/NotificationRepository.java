@@ -1,10 +1,12 @@
 package com.hermes.notificationservice.repositories;
 
 import com.hermes.notificationservice.entities.Notification;
-import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.couchbase.repository.CouchbaseRepository;
+import org.springframework.stereotype.Repository;
 
 /**
  * @author meverg
  */
-public interface NotificationRepository extends JpaRepository<Notification, Long> {
+@Repository
+public interface NotificationRepository extends CouchbaseRepository<Notification, Long> {
 }
