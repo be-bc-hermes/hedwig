@@ -1,5 +1,6 @@
 package com.hermes.notificationservice.entities;
 
+import com.hermes.notificationservice.models.NotificationType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -12,8 +13,10 @@ import javax.persistence.Id;
 public class Notification {
 
   @Id
-  @GeneratedValue(strategy= GenerationType.AUTO)
+  @GeneratedValue(strategy = GenerationType.AUTO)
   private Long id;
+
+  private NotificationType notificationType;
 
   private Long productId;
 
@@ -53,10 +56,19 @@ public class Notification {
     this.oldPriceInCents = oldPriceInCents;
   }
 
+  public NotificationType getNotificationType() {
+    return notificationType;
+  }
+
+  public void setNotificationType(NotificationType notificationType) {
+    this.notificationType = notificationType;
+  }
+
   @Override
   public String toString() {
     return "Notification{" +
            "id=" + id +
+           ", notificationType=" + notificationType +
            ", productId=" + productId +
            ", newPriceInCents=" + newPriceInCents +
            ", oldPriceInCents=" + oldPriceInCents +
