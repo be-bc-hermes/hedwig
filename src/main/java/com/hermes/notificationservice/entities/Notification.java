@@ -23,9 +23,9 @@ public class Notification {
 
   private Long productId;
 
-  private Integer newPriceInCents;
+  private Double newPrice;
 
-  private Integer oldPriceInCents;
+  private Double oldPrice;
 
   public Long getId() {
     return id;
@@ -43,20 +43,20 @@ public class Notification {
     this.productId = productId;
   }
 
-  public Integer getNewPriceInCents() {
-    return newPriceInCents;
+  public Double getNewPrice() {
+    return newPrice;
   }
 
-  public void setNewPriceInCents(Integer newPriceInCents) {
-    this.newPriceInCents = newPriceInCents;
+  public void setNewPrice(Double newPriceInCents) {
+    this.newPrice = newPriceInCents;
   }
 
-  public Integer getOldPriceInCents() {
-    return oldPriceInCents;
+  public Double getOldPrice() {
+    return oldPrice;
   }
 
-  public void setOldPriceInCents(Integer oldPriceInCents) {
-    this.oldPriceInCents = oldPriceInCents;
+  public void setOldPrice(Double oldPriceInCents) {
+    this.oldPrice = oldPriceInCents;
   }
 
   public NotificationType getNotificationType() {
@@ -73,8 +73,8 @@ public class Notification {
            "id=" + id +
            ", notificationType=" + notificationType +
            ", productId=" + productId +
-           ", newPriceInCents=" + newPriceInCents +
-           ", oldPriceInCents=" + oldPriceInCents +
+           ", newPriceInCents=" + newPrice +
+           ", oldPriceInCents=" + oldPrice +
            '}';
   }
 }

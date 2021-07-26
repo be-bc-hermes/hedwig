@@ -31,17 +31,17 @@ public class NotificationPublisher {
     switch (notification.getNotificationType()) {
       case PRODUCT_MOBILE_PRICE_CHANGE -> {
         var message = new ProductPriceChangeNotificationMessage();
-        message.setNotificationId(notification.getId());
+        message.setId(notification.getId());
         message.setProductId(notification.getProductId());
-        message.setProductPriceChannel(ProductPriceChannel.MOBILE);
+        message.setPriceChannel(ProductPriceChannel.MOBILE);
         rabbitTemplate.convertAndSend(notificationExchange.getName(), productPriceChangeNotificationRoutingKey,
                                       message);
       }
       case PRODUCT_DESKTOP_PRICE_CHANGE -> {
         var message = new ProductPriceChangeNotificationMessage();
-        message.setNotificationId(notification.getId());
+        message.setId(notification.getId());
         message.setProductId(notification.getProductId());
-        message.setProductPriceChannel(ProductPriceChannel.DESKTOP);
+        message.setPriceChannel(ProductPriceChannel.DESKTOP);
         rabbitTemplate.convertAndSend(notificationExchange.getName(), productPriceChangeNotificationRoutingKey,
                                       message);
       }

@@ -7,20 +7,20 @@ import java.io.Serializable;
  */
 public abstract class NotificationMessage implements Serializable {
 
-  private Long notificationId;
+  private Long id;
 
-  public Long getNotificationId() {
-    return notificationId;
+  public Long getId() {
+    return id;
   }
 
-  public void setNotificationId(Long notificationId) {
-    this.notificationId = notificationId;
+  public void setId(Long id) {
+    this.id = id;
   }
 
   @Override
   public String toString() {
     return "NotificationMessage{" +
-           "notificationId=" + notificationId +
+           "notificationId=" + id +
            '}';
   }
 }

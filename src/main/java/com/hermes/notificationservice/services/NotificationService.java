@@ -39,10 +39,10 @@ public class NotificationService {
 
   private Notification productPriceChangeToNotification(ProductPriceChangeMessage productPriceChangeMessage) {
     Notification notification = new Notification();
-    notification.setNewPriceInCents(productPriceChangeMessage.getNewPrice());
-    notification.setOldPriceInCents(productPriceChangeMessage.getOldPrice());
-    notification.setProductId(productPriceChangeMessage.getProductId());
-    switch (productPriceChangeMessage.getPriceChannel()) {
+    notification.setNewPrice(productPriceChangeMessage.getNewPrice());
+    notification.setOldPrice(productPriceChangeMessage.getOldPrice());
+    notification.setProductId(productPriceChangeMessage.getId());
+    switch (productPriceChangeMessage.getPriceType()) {
       case MOBILE -> {
         notification.setNotificationType(NotificationType.PRODUCT_MOBILE_PRICE_CHANGE);
       }
@@ -50,7 +50,7 @@ public class NotificationService {
         notification.setNotificationType(NotificationType.PRODUCT_DESKTOP_PRICE_CHANGE);
       }
       default -> throw new IllegalStateException(
-          "Unexpected price channel value: " + productPriceChangeMessage.getPriceChannel());
+          "Unexpected price channel value: " + productPriceChangeMessage.getPriceType());
     }
     return notification;
   }

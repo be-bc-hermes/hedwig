@@ -7,7 +7,7 @@ public class ProductPriceChangeNotificationMessage extends NotificationMessage {
 
   private Long productId;
 
-  private ProductPriceChannel productPriceChannel;
+  private ProductPriceChannel priceChannel;
 
   public Long getProductId() {
     return productId;
@@ -17,19 +17,19 @@ public class ProductPriceChangeNotificationMessage extends NotificationMessage {
     this.productId = productId;
   }
 
-  public ProductPriceChannel getProductPriceChannel() {
-    return productPriceChannel;
+  public ProductPriceChannel getPriceChannel() {
+    return priceChannel;
   }
 
-  public void setProductPriceChannel(ProductPriceChannel productPriceChannel) {
-    this.productPriceChannel = productPriceChannel;
+  public void setPriceChannel(ProductPriceChannel priceChannel) {
+    this.priceChannel = priceChannel;
   }
 
   @Override
   public String toString() {
     return "ProductPriceChangeNotificationMessage{" +
            "productId=" + productId +
-           ", productPriceChannel=" + productPriceChannel +
+           ", productPriceChannel=" + priceChannel +
            "} " + super.toString();
   }
 }
