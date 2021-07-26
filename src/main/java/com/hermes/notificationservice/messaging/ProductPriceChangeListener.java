@@ -1,6 +1,6 @@
 package com.hermes.notificationservice.messaging;
 
-import com.hermes.notificationservice.models.ProductPriceChangeMessage;
+import com.hermes.notificationservice.models.ProductServiceMessageWrapper;
 import com.hermes.notificationservice.services.NotificationService;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.stereotype.Component;
@@ -18,7 +18,7 @@ public class ProductPriceChangeListener {
   }
 
   @RabbitListener(queues = "${ns.rabbit.queues.product-price-change}")
-  public void productPriceChangeListener(ProductPriceChangeMessage message) {
-    notificationService.createProductPriceChangeNotification(message);
+  public void productPriceChangeListener(ProductServiceMessageWrapper message) {
+    notificationService.createProductPriceChangeNotification(message.getMessage());
   }
 }

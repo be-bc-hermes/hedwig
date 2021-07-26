@@ -26,8 +26,7 @@ public class EmailNotifierService {
     message.setSubject("Product Price Change");
     message.setText(
         String.format("Price of the product %d you follow has changed from %.2f to %.2f", notification.getProductId(),
-                      notification.getOldPriceInCents().floatValue() / 100,
-                      notification.getNewPriceInCents().floatValue() / 100));
+                      notification.getOldPrice(), notification.getNewPrice()));
     mailSender.send(message);
   }
 }

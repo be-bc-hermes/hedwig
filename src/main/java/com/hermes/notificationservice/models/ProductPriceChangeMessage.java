@@ -7,62 +7,51 @@ import java.io.Serializable;
  */
 public class ProductPriceChangeMessage implements Serializable {
 
-  private Long productId;
+  private Long id;
 
-  private String productName;
+  private ProductPriceChannel priceType;
 
-  private ProductPriceChannel priceChannel;
+  private Double oldPrice;
 
-  private Integer oldPrice;
+  private Double newPrice;
 
-  private Integer newPrice;
-
-  public Long getProductId() {
-    return productId;
+  public Long getId() {
+    return id;
   }
 
-  public void setProductId(Long productId) {
-    this.productId = productId;
+  public void setId(Long id) {
+    this.id = id;
   }
 
-  public String getProductName() {
-    return productName;
-  }
-
-  public void setProductName(String productName) {
-    this.productName = productName;
-  }
-
-  public Integer getOldPrice() {
+  public Double getOldPrice() {
     return oldPrice;
   }
 
-  public void setOldPrice(Integer oldPrice) {
+  public void setOldPrice(Double oldPrice) {
     this.oldPrice = oldPrice;
   }
 
-  public Integer getNewPrice() {
+  public Double getNewPrice() {
     return newPrice;
   }
 
-  public void setNewPrice(Integer newPrice) {
+  public void setNewPrice(Double newPrice) {
     this.newPrice = newPrice;
   }
 
-  public ProductPriceChannel getPriceChannel() {
-    return priceChannel;
+  public ProductPriceChannel getPriceType() {
+    return priceType;
   }
 
-  public void setPriceChannel(ProductPriceChannel priceChannel) {
-    this.priceChannel = priceChannel;
+  public void setPriceType(ProductPriceChannel priceType) {
+    this.priceType = priceType;
   }
 
   @Override
   public String toString() {
     return "ProductPriceChangeMessage{" +
-           "productId=" + productId +
-           ", productName='" + productName + '\'' +
-           ", priceChannel=" + priceChannel +
+           "productId=" + id +
+           ", priceChannel=" + priceType +
            ", oldPrice=" + oldPrice +
            ", newPrice=" + newPrice +
            '}';
